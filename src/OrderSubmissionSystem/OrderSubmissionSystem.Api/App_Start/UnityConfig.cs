@@ -6,7 +6,6 @@ using OrderSubmissionSystem.Infrastructure.Processors;
 using System.Web.Http;
 using Unity;
 using Unity.Lifetime;
-using Unity.WebApi;
 
 namespace OrderSubmissionSystem.Api
 {

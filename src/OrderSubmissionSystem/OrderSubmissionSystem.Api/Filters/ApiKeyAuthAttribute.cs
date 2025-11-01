@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http.Controllers;
@@ -7,10 +6,10 @@ using System.Web.Http.Filters;
 
 namespace OrderSubmissionSystem.Api.Filters
 {
-    /// 
+    ///
     /// Custom authentication filter for API Key validation
     /// TODO: Implement Redis validation in next phase
-    /// 
+    ///
     public class ApiKeyAuthAttribute : AuthorizationFilterAttribute
     {
         private const string API_KEY_HEADER = "X-API-Key";

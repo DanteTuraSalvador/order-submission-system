@@ -1,8 +1,8 @@
+using OrderSubmissionSystem.Api.Areas.HelpPage.ModelDescriptions;
+using OrderSubmissionSystem.Api.Areas.HelpPage.Models;
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using OrderSubmissionSystem.Api.Areas.HelpPage.ModelDescriptions;
-using OrderSubmissionSystem.Api.Areas.HelpPage.Models;
 
 namespace OrderSubmissionSystem.Api.Areas.HelpPage.Controllers
 {

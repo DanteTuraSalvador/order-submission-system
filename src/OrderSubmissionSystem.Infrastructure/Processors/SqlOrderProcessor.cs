@@ -57,7 +57,7 @@ namespace OrderSubmissionSystem.Infrastructure.Processors
                             }
 
                             transaction.Commit();
-                            return true;  
+                            return true;
                         }
                         catch
                         {
@@ -70,7 +70,7 @@ namespace OrderSubmissionSystem.Infrastructure.Processors
             catch (Exception ex)
             {
                 Console.WriteLine($"Error processing order via SQL: {ex.Message}");
-                return false;  
+                return false;
             }
         }
     }
