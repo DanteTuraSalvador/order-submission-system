@@ -43,12 +43,27 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\OrderSubmissionSystem\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog, Version=4.3.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\OrderSubmissionSystem\packages\Serilog.4.3.0\lib\net462\\Serilog.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\ProcessorConfiguration.cs" />
     <Compile Include="Processors\FtpOrderProcessor.cs" />
     <Compile Include="Processors\SqlOrderProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Configuration\FtpUploaderSettings.cs" />
+    <Compile Include="Formatters\CsvOrderFormatter.cs" />
+    <Compile Include="Formatters\JsonOrderFormatter.cs" />
+    <Compile Include="Formatters\XmlOrderFormatter.cs" />
+    <Compile Include="Formatters\ExcelOrderFormatter.cs" />
+    <Compile Include="Uploaders\FtpUploaderBase.cs" />
+    <Compile Include="Uploaders\LocalFtpUploader.cs" />
+    <Compile Include="Uploaders\AzureFtpUploader.cs" />
+    <Compile Include="Uploaders\AwsFtpUploader.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OrderSubmissionSystem.Application\OrderSubmissionSystem.Application.csproj">

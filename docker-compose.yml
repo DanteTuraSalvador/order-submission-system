@@ -1,0 +1,51 @@
+version: '3.9'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: order-submission-api:latest
+    ports:
+      - "8080:80"
+    environment:
+      SeqUrl: http://seq:5341
+      RedisConnectionString: redis:6379
+      ProcessorType: Ftp
+      OrderFileFormat: Xml
+      FtpUploaderType: Local
+      ApiKeyCachePrefix: api-key:
+    depends_on:
+      - redis
+      - seq
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
+  seq:
+    image: datalust/seq:2022.1
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+    ports:
+      - "5341:80"
+
+  prometheus:
+    image: prom/prometheus:latest
+    restart: unless-stopped
+    volumes:
+      - ./deploy/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "9090:9090"
+    depends_on:
+      - api
+
+  grafana:
+    image: grafana/grafana:10.4.2
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus

@@ -1,5 +1,6 @@
-﻿using OrderSubmissionSystem.Application.Interfaces;
+using OrderSubmissionSystem.Application.Interfaces;
 using OrderSubmissionSystem.Domain.Entities;
+using Serilog;
 using System;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -10,20 +11,25 @@ namespace OrderSubmissionSystem.Infrastructure.Processors
     public class SqlOrderProcessor : IOrderProcessor
     {
         private readonly string _connectionString;
+        private readonly ILogger _logger;
 
         public SqlOrderProcessor()
         {
             _connectionString = ConfigurationManager.ConnectionStrings["OrderDb"]?.ConnectionString
                 ?? throw new InvalidOperationException("OrderDb connection string not found");
+            _logger = Log.ForContext<SqlOrderProcessor>();
         }
 
         public async Task<bool> ProcessOrderAsync(Order order)
         {
+            if (order == null)
+                throw new ArgumentNullException(nameof(order));
+
             try
             {
                 using (var connection = new SqlConnection(_connectionString))
                 {
-                    await connection.OpenAsync();
+                    await connection.OpenAsync().ConfigureAwait(false);
 
                     using (var transaction = connection.BeginTransaction())
                     {
@@ -39,7 +45,7 @@ namespace OrderSubmissionSystem.Infrastructure.Processors
                             orderCommand.Parameters.AddWithValue("@TotalAmount", order.TotalAmount);
                             orderCommand.Parameters.AddWithValue("@OrderDate", order.OrderDate);
 
-                            await orderCommand.ExecuteNonQueryAsync();
+                            await orderCommand.ExecuteNonQueryAsync().ConfigureAwait(false);
 
                             foreach (var item in order.Items)
                             {
@@ -53,10 +59,11 @@ namespace OrderSubmissionSystem.Infrastructure.Processors
                                 itemCommand.Parameters.AddWithValue("@Quantity", item.Quantity);
                                 itemCommand.Parameters.AddWithValue("@UnitPrice", item.UnitPrice);
 
-                                await itemCommand.ExecuteNonQueryAsync();
+                                await itemCommand.ExecuteNonQueryAsync().ConfigureAwait(false);
                             }
 
                             transaction.Commit();
+                            _logger.Information("Order {OrderId} persisted to SQL", order.OrderId);
                             return true;
                         }
                         catch
@@ -69,7 +76,7 @@ namespace OrderSubmissionSystem.Infrastructure.Processors
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error processing order via SQL: {ex.Message}");
+                _logger.Error(ex, "Error processing order {OrderId} via SQL", order?.OrderId);
                 return false;
             }
         }

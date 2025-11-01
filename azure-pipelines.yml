@@ -1,0 +1,44 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  buildConfiguration: 'Release'
+  solution: 'src/OrderSubmissionSystem/OrderSubmissionSystem.Api/OrderSubmissionSystem.Api.csproj'
+  testProject: 'tests/OrderSubmissionSystem.Application.Tests/OrderSubmissionSystem.Application.Tests.csproj'
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  displayName: Restore NuGet packages
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  displayName: Build solution
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:Configuration=$(buildConfiguration) /p:OutDir=$(Build.BinariesDirectory)\'
+    platform: 'Any CPU'
+    configuration: '$(buildConfiguration)'
+
+- task: VSTest@2
+  displayName: Run unit tests
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      $(testProject)
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    vsTestVersion: latest
+
+- task: Docker@2
+  displayName: Build Docker image
+  inputs:
+    command: build
+    Dockerfile: 'Dockerfile'
+    buildContext: '$(System.DefaultWorkingDirectory)'
+    tags: |
+      $(Build.BuildId)

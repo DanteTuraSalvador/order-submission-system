@@ -1,68 +1,54 @@
-﻿using OrderSubmissionSystem.Application.Interfaces;
-using OrderSubmissionSystem.Domain.Entities;
 using System;
-using System.Configuration;
-using System.IO;
-using System.Net;
-using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
+using OrderSubmissionSystem.Application.Interfaces;
+using OrderSubmissionSystem.Domain.Entities;
+using Serilog;
 
 namespace OrderSubmissionSystem.Infrastructure.Processors
 {
     public class FtpOrderProcessor : IOrderProcessor
     {
-        private readonly string _ftpUrl;
-        private readonly string _ftpUsername;
-        private readonly string _ftpPassword;
+        private readonly IOrderFileFormatter _formatter;
+        private readonly IFtpUploader _uploader;
+        private readonly ILogger _logger;
 
-        public FtpOrderProcessor()
+        public FtpOrderProcessor(IOrderFileFormatter formatter, IFtpUploader uploader)
         {
-            _ftpUrl = ConfigurationManager.AppSettings["FtpUrl"]
-                ?? throw new InvalidOperationException("FtpUrl not configured");
-            _ftpUsername = ConfigurationManager.AppSettings["FtpUsername"] ?? "";
-            _ftpPassword = ConfigurationManager.AppSettings["FtpPassword"] ?? "";
+            _formatter = formatter ?? throw new ArgumentNullException(nameof(formatter));
+            _uploader = uploader ?? throw new ArgumentNullException(nameof(uploader));
+            _logger = Log.ForContext<FtpOrderProcessor>();
         }
 
         public async Task<bool> ProcessOrderAsync(Order order)
         {
+            if (order == null)
+                throw new ArgumentNullException(nameof(order));
+
             try
             {
-                var xmlContent = SerializeOrderToXml(order);
-                var fileName = $"Order_{order.OrderId}_{DateTime.UtcNow:yyyyMMddHHmmss}.xml";
-                var ftpFullUrl = $"{_ftpUrl.TrimEnd('/')}/{fileName}";
+                _logger.Information("Preparing order {OrderId} for FTP upload using {Formatter} and {Uploader}",
+                    order.OrderId,
+                    _formatter.GetType().Name,
+                    _uploader.GetType().Name);
 
-                var request = (FtpWebRequest)WebRequest.Create(ftpFullUrl);
-                request.Method = WebRequestMethods.Ftp.UploadFile;
-                request.Credentials = new NetworkCredential(_ftpUsername, _ftpPassword);
+                var payload = _formatter.Format(order);
+                var uploadResult = await _uploader.UploadAsync(payload).ConfigureAwait(false);
 
-                var bytes = Encoding.UTF8.GetBytes(xmlContent);
-                request.ContentLength = bytes.Length;
-
-                using (var requestStream = await request.GetRequestStreamAsync())
+                if (!uploadResult)
                 {
-                    await requestStream.WriteAsync(bytes, 0, bytes.Length);
+                    _logger.Error("FTP upload reported failure for order {OrderId}", order.OrderId);
+                }
+                else
+                {
+                    _logger.Information("Order {OrderId} uploaded to FTP successfully", order.OrderId);
                 }
 
-                using (var response = (FtpWebResponse)await request.GetResponseAsync())
-                {
-                    return response.StatusCode == FtpStatusCode.ClosingData;
-                }
+                return uploadResult;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error processing order via FTP: {ex.Message}");
+                _logger.Error(ex, "Error processing order {OrderId} via FTP", order.OrderId);
                 return false;
-            }
-        }
-
-        private string SerializeOrderToXml(Order order)
-        {
-            var serializer = new XmlSerializer(typeof(Order));
-            using (var stringWriter = new StringWriter())
-            {
-                serializer.Serialize(stringWriter, order);
-                return stringWriter.ToString();
             }
         }
     }
