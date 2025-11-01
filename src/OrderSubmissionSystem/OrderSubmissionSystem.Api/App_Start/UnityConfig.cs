@@ -15,10 +15,8 @@ namespace OrderSubmissionSystem.Api
         {
             var container = new UnityContainer();
 
-            // Register Application Services
             container.RegisterType<IOrderSubmissionService, OrderSubmissionService>(new HierarchicalLifetimeManager());
 
-            // Register Infrastructure - Processor based on configuration
             var processorType = ProcessorConfiguration.GetProcessorType();
 
             if (processorType == ProcessorType.Sql)
@@ -30,7 +28,6 @@ namespace OrderSubmissionSystem.Api
                 container.RegisterType<IOrderProcessor, FtpOrderProcessor>(new HierarchicalLifetimeManager());
             }
 
-            // Set Unity as the dependency resolver for Web API
             GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
         }
     }
