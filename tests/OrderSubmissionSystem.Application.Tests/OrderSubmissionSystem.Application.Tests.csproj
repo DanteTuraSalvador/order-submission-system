@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <RestoreSources>https://api.nuget.org/v3/index.json</RestoreSources>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.1.1" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.1.1" />
+    <PackageReference Include="Moq" Version="4.20.70" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\OrderSubmissionSystem.Application\OrderSubmissionSystem.Application.csproj" />
+    <ProjectReference Include="..\..\src\OrderSubmissionSystem.Domain\OrderSubmissionSystem.Domain.csproj" />
+  </ItemGroup>
+</Project>

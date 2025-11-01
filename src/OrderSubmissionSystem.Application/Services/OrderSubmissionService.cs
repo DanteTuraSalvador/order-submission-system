@@ -1,4 +1,5 @@
-﻿using OrderSubmissionSystem.Application.Interfaces;
+using OrderSubmissionSystem.Application.Interfaces;
+using OrderSubmissionSystem.Application.Models;
 using OrderSubmissionSystem.Domain.Entities;
 using System;
 using System.Linq;
@@ -15,15 +16,20 @@ namespace OrderSubmissionSystem.Application.Services
             _orderProcessor = orderProcessor ?? throw new ArgumentNullException(nameof(orderProcessor));
         }
 
-        public async Task<bool> SubmitOrderAsync(Order order)
+        public async Task<OrderSubmissionResult> SubmitOrderAsync(Order order)
         {
             if (order == null)
                 throw new ArgumentNullException(nameof(order));
 
             if (!ValidateOrder(order))
-                return false;
+                return OrderSubmissionResult.ValidationFailure("Order validation failed");
 
-            return await _orderProcessor.ProcessOrderAsync(order);
+            var processed = await _orderProcessor.ProcessOrderAsync(order);
+
+            if (!processed)
+                return OrderSubmissionResult.ProcessingFailure("Order processing failed", order.OrderId);
+
+            return OrderSubmissionResult.SuccessResult(order.OrderId);
         }
 
         public bool ValidateOrder(Order order)
