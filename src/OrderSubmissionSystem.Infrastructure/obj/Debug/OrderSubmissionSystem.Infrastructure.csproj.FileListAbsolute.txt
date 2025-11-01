@@ -24,3 +24,7 @@ C:\Users\Dante Salvador\OneDrive\Documents\Task\order-submission-system\src\Orde
 C:\Users\Dante Salvador\OneDrive\Documents\Task\order-submission-system\src\OrderSubmissionSystem.Infrastructure\obj\Debug\OrderSubmissionSystem.Infrastructure.csproj.AssemblyReference.cache
 C:\Users\Dante Salvador\OneDrive\Documents\Task\order-submission-system\src\OrderSubmissionSystem.Infrastructure\obj\Debug\OrderSubmissionSystem.Infrastructure.csproj.CoreCompileInputs.cache
 C:\Users\Dante Salvador\OneDrive\Documents\Task\order-submission-system\src\OrderSubmissionSystem.Infrastructure\obj\Debug\OrderSub.56808054.Up2Date
+C:\Users\Dante Salvador\OneDrive\Documents\Task\order-submission-system\src\OrderSubmissionSystem.Infrastructure\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Dante Salvador\OneDrive\Documents\Task\order-submission-system\src\OrderSubmissionSystem.Infrastructure\bin\Debug\Serilog.dll
+C:\Users\Dante Salvador\OneDrive\Documents\Task\order-submission-system\src\OrderSubmissionSystem.Infrastructure\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Dante Salvador\OneDrive\Documents\Task\order-submission-system\src\OrderSubmissionSystem.Infrastructure\bin\Debug\Serilog.xml

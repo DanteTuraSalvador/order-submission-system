@@ -16,3 +16,5 @@ C:\Users\Dante Salvador\OneDrive\Documents\Task\order-submission-system\src\Orde
 C:\Users\Dante Salvador\OneDrive\Documents\Task\order-submission-system\src\OrderSubmissionSystem.Application\bin\Debug\OrderSubmissionSystem.Domain.dll
 C:\Users\Dante Salvador\OneDrive\Documents\Task\order-submission-system\src\OrderSubmissionSystem.Application\bin\Debug\OrderSubmissionSystem.Domain.pdb
 C:\Users\Dante Salvador\OneDrive\Documents\Task\order-submission-system\src\OrderSubmissionSystem.Application\obj\Debug\OrderSub.732C2C46.Up2Date
+C:\Users\Dante Salvador\OneDrive\Documents\Task\order-submission-system\src\OrderSubmissionSystem.Application\bin\Debug\Serilog.dll
+C:\Users\Dante Salvador\OneDrive\Documents\Task\order-submission-system\src\OrderSubmissionSystem.Application\bin\Debug\Serilog.xml
