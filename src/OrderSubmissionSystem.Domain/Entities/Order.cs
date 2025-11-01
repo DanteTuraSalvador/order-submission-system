@@ -4,9 +4,6 @@ using System.Collections.Generic;
 
 namespace OrderSubmissionSystem.Domain.Entities
 {
-    /// 
-    /// Represents an order entity (POCO)
-    /// 
     public class Order
     {
         public string OrderId { get; set; }

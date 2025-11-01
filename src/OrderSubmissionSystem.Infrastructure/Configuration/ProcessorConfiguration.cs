@@ -4,7 +4,6 @@ using System.Configuration;
 
 namespace OrderSubmissionSystem.Infrastructure.Configuration
 {
-
     public static class ProcessorConfiguration
     {
         public static ProcessorType GetProcessorType()
@@ -17,7 +16,6 @@ namespace OrderSubmissionSystem.Infrastructure.Configuration
                 return processorType;
             }
 
-            // Default to SQL if not configured
             return ProcessorType.Sql;
         }
     }

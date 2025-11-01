@@ -5,7 +5,7 @@ namespace OrderSubmissionSystem.Application.Interfaces
 {
     public interface IOrderSubmissionService
     {
-        Task<bool> SubmitOrderAsync(Order order);  // ← Must return Task<bool>
+        Task<bool> SubmitOrderAsync(Order order);  
         bool ValidateOrder(Order order);
     }
 }

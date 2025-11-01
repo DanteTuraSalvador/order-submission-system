@@ -5,6 +5,6 @@ namespace OrderSubmissionSystem.Application.Interfaces
 {
     public interface IOrderProcessor
     {
-        Task<bool> ProcessOrderAsync(Order order);  // ← MUST return Task<bool>
+        Task<bool> ProcessOrderAsync(Order order);  
     }
 }
