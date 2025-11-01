@@ -115,6 +115,9 @@ C:.
     ¦   ¦   ¦       Microsoft.Web.Infrastructure.dll
     ¦   ¦   ¦       Newtonsoft.Json.Bson.dll
     ¦   ¦   ¦       Newtonsoft.Json.dll
+    ¦   ¦   ¦       OrderSubmissionSystem.Application.dll
+    ¦   ¦   ¦       OrderSubmissionSystem.Domain.dll
+    ¦   ¦   ¦       OrderSubmissionSystem.Infrastructure.dll
     ¦   ¦   ¦       Pipelines.Sockets.Unofficial.dll
     ¦   ¦   ¦       prometheus.AspNet.dll
     ¦   ¦   ¦       Prometheus.NetStandard.dll
