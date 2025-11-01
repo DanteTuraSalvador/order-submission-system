@@ -1,3 +1,4 @@
+using OrderSubmissionSystem.Api.Security;
 using OrderSubmissionSystem.Application.Interfaces;
 using OrderSubmissionSystem.Application.Services;
 using OrderSubmissionSystem.Domain.Enums;
@@ -6,6 +7,9 @@ using OrderSubmissionSystem.Infrastructure.Formatters;
 using OrderSubmissionSystem.Infrastructure.Processors;
 using OrderSubmissionSystem.Infrastructure.Uploaders;
 using System;
+using System.Configuration;
+using System.IO;
+using System.Web.Hosting;
 using System.Web.Http;
 using Unity;
 using Unity.Lifetime;
@@ -18,6 +22,7 @@ namespace OrderSubmissionSystem.Api
         {
             var container = new UnityContainer();
 
+            RegisterApiKeyStore(container);
             container.RegisterType<IOrderSubmissionService, OrderSubmissionService>(new HierarchicalLifetimeManager());
 
             var processorType = ProcessorConfiguration.GetProcessorType();
@@ -34,6 +39,28 @@ namespace OrderSubmissionSystem.Api
             }
 
             GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
+        }
+
+        private static void RegisterApiKeyStore(IUnityContainer container)
+        {
+            var fileSetting = ConfigurationManager.AppSettings["ApiKeysFile"] ?? "~/App_Data/api-keys.json";
+            var mappedPath = HostingEnvironment.MapPath(fileSetting);
+            string filePath;
+            if (!string.IsNullOrEmpty(mappedPath))
+            {
+                filePath = mappedPath;
+            }
+            else if (Path.IsPathRooted(fileSetting))
+            {
+                filePath = fileSetting;
+            }
+            else
+            {
+                filePath = Path.GetFullPath(fileSetting);
+            }
+
+            container.RegisterFactory<IApiKeyStore>(_ => new FileApiKeyStore(filePath), new ContainerControlledLifetimeManager());
+            ApiKeyValidator.Initialize(container.Resolve<IApiKeyStore>());
         }
 
         private static void RegisterFileFormatter(IUnityContainer container)

@@ -1,12 +1,11 @@
+using OrderSubmissionSystem.Api.Monitoring;
+using Serilog;
 using System;
-using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
-using OrderSubmissionSystem.Api.Monitoring;
-using Serilog;
 
 namespace OrderSubmissionSystem.Api.Security
 {
@@ -33,11 +32,7 @@ namespace OrderSubmissionSystem.Api.Security
 
             try
             {
-                var database = RedisConnectionFactory.Connection.GetDatabase();
-                var prefix = Environment.GetEnvironmentVariable("ApiKeyCachePrefix") ?? ConfigurationManager.AppSettings["ApiKeyCachePrefix"] ?? "api-key:";
-                var cacheValue = database.StringGet(prefix + apiKey);
-
-                if (!cacheValue.HasValue)
+                if (!ApiKeyValidator.TryValidate(apiKey))
                 {
                     Deny(actionContext, HttpStatusCode.Unauthorized, "API key is invalid", "invalid");
                     return;
@@ -73,5 +68,3 @@ namespace OrderSubmissionSystem.Api.Security
         }
     }
 }
-
-

@@ -1,0 +1,9 @@
+{
+  "keys": [
+    {
+      "value": "local-test",
+      "description": "Local development client",
+      "enabled": true
+    }
+  ]
+}
