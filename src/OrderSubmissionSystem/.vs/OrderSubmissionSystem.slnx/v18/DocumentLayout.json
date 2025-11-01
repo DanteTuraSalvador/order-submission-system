@@ -1,0 +1,271 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{572E8008-64F3-425B-91B2-C3FC1073B11A}|..\\OrderSubmissionSystem.Application\\OrderSubmissionSystem.Application.csproj|c:\\users\\dante salvador\\source\\repos\\ordersubmissionsystem\\src\\ordersubmissionsystem.application\\interfaces\\iordersubmissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6852170D-7D5C-4DC1-BAF9-D4C1E8DD75C6}|..\\OrderSubmissionSystem.Infrastructure\\OrderSubmissionSystem.Infrastructure.csproj|c:\\users\\dante salvador\\source\\repos\\ordersubmissionsystem\\src\\ordersubmissionsystem.infrastructure\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6852170D-7D5C-4DC1-BAF9-D4C1E8DD75C6}|..\\OrderSubmissionSystem.Infrastructure\\OrderSubmissionSystem.Infrastructure.csproj|c:\\users\\dante salvador\\source\\repos\\ordersubmissionsystem\\src\\ordersubmissionsystem.infrastructure\\processors\\ftporderprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9D0141B-C97D-4926-BC90-983E3E061366}|OrderSubmissionSystem.Api\\OrderSubmissionSystem.Api.csproj|C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem\\ordersubmissionsystem.api\\app_start\\unityconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9D0141B-C97D-4926-BC90-983E3E061366}|OrderSubmissionSystem.Api\\OrderSubmissionSystem.Api.csproj|solutionrelative:ordersubmissionsystem.api\\app_start\\unityconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6852170D-7D5C-4DC1-BAF9-D4C1E8DD75C6}|..\\OrderSubmissionSystem.Infrastructure\\OrderSubmissionSystem.Infrastructure.csproj|c:\\users\\dante salvador\\source\\repos\\ordersubmissionsystem\\src\\ordersubmissionsystem.infrastructure\\processors\\sqlorderprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{572E8008-64F3-425B-91B2-C3FC1073B11A}|..\\OrderSubmissionSystem.Application\\OrderSubmissionSystem.Application.csproj|c:\\users\\dante salvador\\source\\repos\\ordersubmissionsystem\\src\\ordersubmissionsystem.application\\interfaces\\iorderprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{572E8008-64F3-425B-91B2-C3FC1073B11A}|..\\OrderSubmissionSystem.Application\\OrderSubmissionSystem.Application.csproj|c:\\users\\dante salvador\\source\\repos\\ordersubmissionsystem\\src\\ordersubmissionsystem.application\\services\\ordersubmissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9D0141B-C97D-4926-BC90-983E3E061366}|OrderSubmissionSystem.Api\\OrderSubmissionSystem.Api.csproj|c:\\users\\dante salvador\\source\\repos\\ordersubmissionsystem\\src\\ordersubmissionsystem\\ordersubmissionsystem.api\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9D0141B-C97D-4926-BC90-983E3E061366}|OrderSubmissionSystem.Api\\OrderSubmissionSystem.Api.csproj|solutionrelative:ordersubmissionsystem.api\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60025292-A4F9-4D1D-BCFB-5F237CB69F1D}|..\\OrderSubmissionSystem.Domain\\OrderSubmissionSystem.Domain.csproj|c:\\users\\dante salvador\\source\\repos\\ordersubmissionsystem\\src\\ordersubmissionsystem.domain\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60025292-A4F9-4D1D-BCFB-5F237CB69F1D}|..\\OrderSubmissionSystem.Domain\\OrderSubmissionSystem.Domain.csproj|c:\\users\\dante salvador\\source\\repos\\ordersubmissionsystem\\src\\ordersubmissionsystem.domain\\entities\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6852170D-7D5C-4DC1-BAF9-D4C1E8DD75C6}|..\\OrderSubmissionSystem.Infrastructure\\OrderSubmissionSystem.Infrastructure.csproj|c:\\users\\dante salvador\\source\\repos\\ordersubmissionsystem\\src\\ordersubmissionsystem.infrastructure\\configuration\\processorconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9D0141B-C97D-4926-BC90-983E3E061366}|OrderSubmissionSystem.Api\\OrderSubmissionSystem.Api.csproj|C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem\\ordersubmissionsystem.api\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9D0141B-C97D-4926-BC90-983E3E061366}|OrderSubmissionSystem.Api\\OrderSubmissionSystem.Api.csproj|solutionrelative:ordersubmissionsystem.api\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IOrderProcessor.cs",
+              "DocumentMoniker": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem.Application\\Interfaces\\IOrderProcessor.cs",
+              "RelativeDocumentMoniker": "..\\OrderSubmissionSystem.Application\\Interfaces\\IOrderProcessor.cs",
+              "ToolTip": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem.Application\\Interfaces\\IOrderProcessor.cs",
+              "RelativeToolTip": "..\\OrderSubmissionSystem.Application\\Interfaces\\IOrderProcessor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T11:51:27.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IOrderSubmissionService.cs",
+              "DocumentMoniker": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem.Application\\Interfaces\\IOrderSubmissionService.cs",
+              "RelativeDocumentMoniker": "..\\OrderSubmissionSystem.Application\\Interfaces\\IOrderSubmissionService.cs",
+              "ToolTip": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem.Application\\Interfaces\\IOrderSubmissionService.cs",
+              "RelativeToolTip": "..\\OrderSubmissionSystem.Application\\Interfaces\\IOrderSubmissionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T11:49:10.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem\\OrderSubmissionSystem.Api\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "OrderSubmissionSystem.Api\\Controllers\\OrdersController.cs",
+              "ToolTip": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem\\OrderSubmissionSystem.Api\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "OrderSubmissionSystem.Api\\Controllers\\OrdersController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwCAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T11:48:29.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "packages.config",
+              "DocumentMoniker": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem.Infrastructure\\packages.config",
+              "RelativeDocumentMoniker": "..\\OrderSubmissionSystem.Infrastructure\\packages.config",
+              "ToolTip": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem.Infrastructure\\packages.config",
+              "RelativeToolTip": "..\\OrderSubmissionSystem.Infrastructure\\packages.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-11-01T11:46:02.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem.Domain\\Entities\\Order.cs",
+              "RelativeDocumentMoniker": "..\\OrderSubmissionSystem.Domain\\Entities\\Order.cs",
+              "ToolTip": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem.Domain\\Entities\\Order.cs",
+              "RelativeToolTip": "..\\OrderSubmissionSystem.Domain\\Entities\\Order.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T11:38:45.093Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FtpOrderProcessor.cs",
+              "DocumentMoniker": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem.Infrastructure\\Processors\\FtpOrderProcessor.cs",
+              "RelativeDocumentMoniker": "..\\OrderSubmissionSystem.Infrastructure\\Processors\\FtpOrderProcessor.cs",
+              "ToolTip": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem.Infrastructure\\Processors\\FtpOrderProcessor.cs",
+              "RelativeToolTip": "..\\OrderSubmissionSystem.Infrastructure\\Processors\\FtpOrderProcessor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T11:37:13.049Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "OrderSubmissionService.cs",
+              "DocumentMoniker": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem.Application\\Services\\OrderSubmissionService.cs",
+              "RelativeDocumentMoniker": "..\\OrderSubmissionSystem.Application\\Services\\OrderSubmissionService.cs",
+              "ToolTip": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem.Application\\Services\\OrderSubmissionService.cs",
+              "RelativeToolTip": "..\\OrderSubmissionSystem.Application\\Services\\OrderSubmissionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T11:35:02.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "OrderItem.cs",
+              "DocumentMoniker": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem.Domain\\Entities\\OrderItem.cs",
+              "RelativeDocumentMoniker": "..\\OrderSubmissionSystem.Domain\\Entities\\OrderItem.cs",
+              "ToolTip": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem.Domain\\Entities\\OrderItem.cs",
+              "RelativeToolTip": "..\\OrderSubmissionSystem.Domain\\Entities\\OrderItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T11:34:20.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SqlOrderProcessor.cs",
+              "DocumentMoniker": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem.Infrastructure\\Processors\\SqlOrderProcessor.cs",
+              "RelativeDocumentMoniker": "..\\OrderSubmissionSystem.Infrastructure\\Processors\\SqlOrderProcessor.cs",
+              "ToolTip": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem.Infrastructure\\Processors\\SqlOrderProcessor.cs",
+              "RelativeToolTip": "..\\OrderSubmissionSystem.Infrastructure\\Processors\\SqlOrderProcessor.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T11:33:51.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ProcessorConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem.Infrastructure\\Configuration\\ProcessorConfiguration.cs",
+              "RelativeDocumentMoniker": "..\\OrderSubmissionSystem.Infrastructure\\Configuration\\ProcessorConfiguration.cs",
+              "ToolTip": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem.Infrastructure\\Configuration\\ProcessorConfiguration.cs",
+              "RelativeToolTip": "..\\OrderSubmissionSystem.Infrastructure\\Configuration\\ProcessorConfiguration.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T11:33:08.264Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UnityConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem\\OrderSubmissionSystem.Api\\App_Start\\UnityConfig.cs",
+              "RelativeDocumentMoniker": "OrderSubmissionSystem.Api\\App_Start\\UnityConfig.cs",
+              "ToolTip": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem\\OrderSubmissionSystem.Api\\App_Start\\UnityConfig.cs",
+              "RelativeToolTip": "OrderSubmissionSystem.Api\\App_Start\\UnityConfig.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAIA9wBwAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T11:32:52.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BundleConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem\\OrderSubmissionSystem.Api\\App_Start\\BundleConfig.cs",
+              "RelativeDocumentMoniker": "OrderSubmissionSystem.Api\\App_Start\\BundleConfig.cs",
+              "ToolTip": "C:\\Users\\Dante Salvador\\source\\repos\\OrderSubmissionSystem\\src\\OrderSubmissionSystem\\OrderSubmissionSystem.Api\\App_Start\\BundleConfig.cs",
+              "RelativeToolTip": "OrderSubmissionSystem.Api\\App_Start\\BundleConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T11:32:48.532Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 530,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

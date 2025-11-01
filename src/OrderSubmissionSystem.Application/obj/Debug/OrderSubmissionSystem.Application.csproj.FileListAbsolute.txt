@@ -1,0 +1,9 @@
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Application\bin\Debug\OrderSubmissionSystem.Application.dll
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Application\bin\Debug\OrderSubmissionSystem.Application.pdb
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Application\bin\Debug\OrderSubmissionSystem.Domain.dll
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Application\bin\Debug\OrderSubmissionSystem.Domain.pdb
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Application\obj\Debug\OrderSubmissionSystem.Application.csproj.AssemblyReference.cache
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Application\obj\Debug\OrderSubmissionSystem.Application.csproj.CoreCompileInputs.cache
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Application\obj\Debug\OrderSub.732C2C46.Up2Date
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Application\obj\Debug\OrderSubmissionSystem.Application.dll
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Application\obj\Debug\OrderSubmissionSystem.Application.pdb

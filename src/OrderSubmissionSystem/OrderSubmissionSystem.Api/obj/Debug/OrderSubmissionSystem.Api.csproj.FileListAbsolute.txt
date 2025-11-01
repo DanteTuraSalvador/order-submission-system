@@ -1,0 +1,2 @@
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem\OrderSubmissionSystem.Api\obj\Debug\OrderSubmissionSystem.Api.csproj.AssemblyReference.cache
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem\OrderSubmissionSystem.Api\obj\Debug\OrderSubmissionSystem.Api.csproj.CoreCompileInputs.cache

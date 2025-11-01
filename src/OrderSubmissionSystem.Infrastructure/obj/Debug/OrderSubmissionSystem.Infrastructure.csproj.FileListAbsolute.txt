@@ -1,0 +1,13 @@
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Infrastructure\bin\Debug\OrderSubmissionSystem.Infrastructure.dll
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Infrastructure\bin\Debug\OrderSubmissionSystem.Infrastructure.pdb
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Infrastructure\bin\Debug\OrderSubmissionSystem.Application.dll
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Infrastructure\bin\Debug\OrderSubmissionSystem.Domain.dll
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Infrastructure\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Infrastructure\bin\Debug\OrderSubmissionSystem.Application.pdb
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Infrastructure\bin\Debug\OrderSubmissionSystem.Domain.pdb
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Infrastructure\bin\Debug\System.Data.SqlClient.xml
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Infrastructure\obj\Debug\OrderSubmissionSystem.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Infrastructure\obj\Debug\OrderSubmissionSystem.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Infrastructure\obj\Debug\OrderSub.56808054.Up2Date
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Infrastructure\obj\Debug\OrderSubmissionSystem.Infrastructure.dll
+C:\Users\Dante Salvador\source\repos\OrderSubmissionSystem\src\OrderSubmissionSystem.Infrastructure\obj\Debug\OrderSubmissionSystem.Infrastructure.pdb
