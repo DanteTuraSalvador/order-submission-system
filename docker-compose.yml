@@ -8,12 +8,12 @@ services:
     ports:
       - "8080:80"
     environment:
-      SeqUrl: http://seq:5341
-      RedisConnectionString: redis:6379
-      ProcessorType: Ftp
-      OrderFileFormat: Xml
-      FtpUploaderType: Local
-      ApiKeyCachePrefix: api-key:
+      SeqUrl: "http://seq:5341"
+      RedisConnectionString: "redis:6379"
+      ProcessorType: "Ftp"
+      OrderFileFormat: "Xml"
+      FtpUploaderType: "Local"
+      ApiKeyCachePrefix: "api-key:"
     depends_on:
       - redis
       - seq
