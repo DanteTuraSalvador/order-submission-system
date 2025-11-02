@@ -1,18 +1,18 @@
-using OrderSubmissionSystem.Api.Security;
-using OrderSubmissionSystem.Application.Interfaces;
-using OrderSubmissionSystem.Application.Services;
-using OrderSubmissionSystem.Domain.Enums;
-using OrderSubmissionSystem.Infrastructure.Configuration;
-using OrderSubmissionSystem.Infrastructure.Formatters;
-using OrderSubmissionSystem.Infrastructure.Processors;
-using OrderSubmissionSystem.Infrastructure.Uploaders;
 using System;
-using System.Configuration;
 using System.IO;
 using System.Web.Hosting;
 using System.Web.Http;
 using Unity;
-using Unity.Lifetime;
+using Unity.WebApi;
+using Unity.Injection; // ADD THIS LINE
+using OrderSubmissionSystem.Application.Interfaces;
+using OrderSubmissionSystem.Application.Services;
+using OrderSubmissionSystem.Infrastructure.Processors;
+using OrderSubmissionSystem.Infrastructure.Formatters;
+using OrderSubmissionSystem.Infrastructure.Uploaders;
+using OrderSubmissionSystem.Infrastructure.Configuration;
+using OrderSubmissionSystem.Domain.Enums;
+using OrderSubmissionSystem.Api.Security;
 
 namespace OrderSubmissionSystem.Api
 {
@@ -20,89 +20,119 @@ namespace OrderSubmissionSystem.Api
     {
         public static void RegisterComponents()
         {
+            var container = BuildContainer();
+            GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
+            InitializeApiKeyValidator(container);
+        }
+
+        public static IUnityContainer BuildContainer()
+        {
             var container = new UnityContainer();
 
-            RegisterApiKeyStore(container);
-            container.RegisterType<IOrderSubmissionService, OrderSubmissionService>(new HierarchicalLifetimeManager());
-
-            var processorType = ProcessorConfiguration.GetProcessorType();
-
-            if (processorType == ProcessorType.Sql)
+            // API Key Store Registration
+            container.RegisterFactory<IApiKeyStore>((c, t, n) =>
             {
-                container.RegisterType<IOrderProcessor, SqlOrderProcessor>(new HierarchicalLifetimeManager());
-            }
-            else
-            {
-                RegisterFileFormatter(container);
-                RegisterFtpUploader(container);
-                container.RegisterType<IOrderProcessor, FtpOrderProcessor>(new HierarchicalLifetimeManager());
-            }
+                var apiKeysSetting = SecureConfigurationHelper.GetRequiredSetting("ApiKeysFile");
+                string filePath;
 
-            GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
+                if (Path.IsPathRooted(apiKeysSetting))
+                {
+                    filePath = apiKeysSetting;
+                }
+                else
+                {
+                    filePath = HostingEnvironment.MapPath(apiKeysSetting);
+                    if (string.IsNullOrWhiteSpace(filePath))
+                    {
+                        throw new InvalidOperationException(
+                            $"Unable to resolve API keys file path '{apiKeysSetting}'. Ensure the file exists or provide an absolute path.");
+                    }
+                }
+
+                return new FileApiKeyStore(filePath);
+            });
+
+            // Formatters Registration
+            container.RegisterType<IOrderFileFormatter, CsvOrderFormatter>(nameof(OrderFileFormat.Csv));
+            container.RegisterType<IOrderFileFormatter, XmlOrderFormatter>(nameof(OrderFileFormat.Xml));
+            container.RegisterType<IOrderFileFormatter, JsonOrderFormatter>(nameof(OrderFileFormat.Json));
+            container.RegisterType<IOrderFileFormatter, ExcelOrderFormatter>(nameof(OrderFileFormat.Excel));
+
+            // FTP Uploaders Registration
+            container.RegisterType<IFtpUploader, LocalFtpUploader>(nameof(FtpUploaderType.Local));
+            container.RegisterType<IFtpUploader, AzureFtpUploader>(nameof(FtpUploaderType.Azure));
+            container.RegisterType<IFtpUploader, AwsFtpUploader>(nameof(FtpUploaderType.Aws));
+
+            // Processors Registration
+            container.RegisterType<IOrderProcessor, SqlOrderProcessor>(nameof(ProcessorType.Sql));
+            container.RegisterType<IOrderProcessor, FtpOrderProcessor>(nameof(ProcessorType.Ftp));
+
+            // Main Service Registration
+            container.RegisterFactory<IOrderSubmissionService>((c, t, n) =>
+            {
+                var processorType = ProcessorConfiguration.GetProcessorType();
+                IOrderProcessor processor;
+
+                if (processorType == ProcessorType.Ftp)
+                {
+                    var fileFormat = ProcessorConfiguration.GetFileFormat();
+                    var ftpUploaderType = ProcessorConfiguration.GetFtpUploaderType();
+                    var ftpSettings = ProcessorConfiguration.GetFtpUploaderSettings(ftpUploaderType);
+
+                    IOrderFileFormatter formatter;
+                    switch (fileFormat)
+                    {
+                        case OrderFileFormat.Csv:
+                            formatter = new CsvOrderFormatter();
+                            break;
+                        case OrderFileFormat.Xml:
+                            formatter = new XmlOrderFormatter();
+                            break;
+                        case OrderFileFormat.Json:
+                            formatter = new JsonOrderFormatter();
+                            break;
+                        case OrderFileFormat.Excel:
+                            formatter = new ExcelOrderFormatter();
+                            break;
+                        default:
+                            formatter = new CsvOrderFormatter();
+                            break;
+                    }
+
+                    IFtpUploader uploader;
+                    switch (ftpUploaderType)
+                    {
+                        case FtpUploaderType.Azure:
+                            uploader = new AzureFtpUploader(ftpSettings);
+                            break;
+                        case FtpUploaderType.Aws:
+                            uploader = new AwsFtpUploader(ftpSettings);
+                            break;
+                        case FtpUploaderType.Local:
+                            uploader = new LocalFtpUploader(ftpSettings);
+                            break;
+                        default:
+                            uploader = new LocalFtpUploader(ftpSettings);
+                            break;
+                    }
+
+                    processor = new FtpOrderProcessor(formatter, uploader);
+                }
+                else
+                {
+                    processor = new SqlOrderProcessor();
+                }
+
+                return new OrderSubmissionService(processor);
+            });
+
+            return container;
         }
 
-        private static void RegisterApiKeyStore(IUnityContainer container)
+        private static void InitializeApiKeyValidator(IUnityContainer container)
         {
-            var fileSetting = ConfigurationManager.AppSettings["ApiKeysFile"] ?? "~/App_Data/api-keys.json";
-            var mappedPath = HostingEnvironment.MapPath(fileSetting);
-            string filePath;
-            if (!string.IsNullOrEmpty(mappedPath))
-            {
-                filePath = mappedPath;
-            }
-            else if (Path.IsPathRooted(fileSetting))
-            {
-                filePath = fileSetting;
-            }
-            else
-            {
-                filePath = Path.GetFullPath(fileSetting);
-            }
-
-            container.RegisterFactory<IApiKeyStore>(_ => new FileApiKeyStore(filePath), new ContainerControlledLifetimeManager());
-            ApiKeyValidator.Initialize(container.Resolve<IApiKeyStore>());
-        }
-
-        private static void RegisterFileFormatter(IUnityContainer container)
-        {
-            var format = ProcessorConfiguration.GetFileFormat();
-
-            switch (format)
-            {
-                case OrderFileFormat.Csv:
-                    container.RegisterType<IOrderFileFormatter, CsvOrderFormatter>(new HierarchicalLifetimeManager());
-                    break;
-                case OrderFileFormat.Json:
-                    container.RegisterType<IOrderFileFormatter, JsonOrderFormatter>(new HierarchicalLifetimeManager());
-                    break;
-                case OrderFileFormat.Excel:
-                    container.RegisterType<IOrderFileFormatter, ExcelOrderFormatter>(new HierarchicalLifetimeManager());
-                    break;
-                case OrderFileFormat.Xml:
-                default:
-                    container.RegisterType<IOrderFileFormatter, XmlOrderFormatter>(new HierarchicalLifetimeManager());
-                    break;
-            }
-        }
-
-        private static void RegisterFtpUploader(IUnityContainer container)
-        {
-            var uploaderType = ProcessorConfiguration.GetFtpUploaderType();
-            container.RegisterFactory<FtpUploaderSettings>(_ => ProcessorConfiguration.GetFtpUploaderSettings(uploaderType), new HierarchicalLifetimeManager());
-
-            switch (uploaderType)
-            {
-                case FtpUploaderType.Azure:
-                    container.RegisterType<IFtpUploader, AzureFtpUploader>(new HierarchicalLifetimeManager());
-                    break;
-                case FtpUploaderType.Aws:
-                    container.RegisterType<IFtpUploader, AwsFtpUploader>(new HierarchicalLifetimeManager());
-                    break;
-                case FtpUploaderType.Local:
-                default:
-                    container.RegisterType<IFtpUploader, LocalFtpUploader>(new HierarchicalLifetimeManager());
-                    break;
-            }
+            var apiKeyStore = container.Resolve<IApiKeyStore>();
+            ApiKeyValidator.Initialize(apiKeyStore);
         }
     }
 }
