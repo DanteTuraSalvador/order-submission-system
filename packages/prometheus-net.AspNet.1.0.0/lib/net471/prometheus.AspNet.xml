@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>prometheus.AspNet</name>
+    </assembly>
+    <members>
+        <member name="T:Prometheus.AspNet.PrometheusHttpRequestModule">
+            <summary>
+            Middleware for tracking basic HTTP request info
+            </summary>
+        </member>
+        <member name="M:Prometheus.AspNet.PrometheusHttpRequestModule.Init(System.Web.HttpApplication)">
+            <summary>
+            
+            </summary>
+            <param name="httpApp"></param>
+        </member>
+        <member name="M:Prometheus.AspNet.PrometheusHttpRequestModule.OnBeginRequest(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Prometheus.AspNet.PrometheusHttpRequestModule.OnEndRequest(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Prometheus.AspNet.PrometheusHttpRequestModule.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Prometheus.AspNet.PerformanceMonitorModule">
+            <summary>
+            Library for monitoring HTTP requests
+            </summary>
+        </member>
+        <member name="M:Prometheus.AspNet.PerformanceMonitorModule.Init(System.Web.HttpApplication)">
+            <summary>
+            
+            </summary>
+            <param name="httpApp"></param>
+        </member>
+        <member name="M:Prometheus.AspNet.PerformanceMonitorModule.OnBeginRequest(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Prometheus.AspNet.PerformanceMonitorModule.OnEndRequest(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Prometheus.AspNet.PerformanceMonitorModule.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Prometheus.AspNet.PrometheusConfig">
+            <summary>
+            Library for configuring Prometheus for WebApi.
+            </summary>
+        </member>
+        <member name="M:Prometheus.AspNet.PrometheusConfig.UseMetricsServer(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Adds an endpoint for displaying prometheus metrics. 
+            </summary>
+            <param name="config">Obtained by calling from WebApiConfig.Register</param>
+            <param name="url">eg, "metrics" or "api/metrics"</param>
+        </member>
+        <member name="M:Prometheus.AspNet.PrometheusConfig.UseMetricsServer(System.Web.Http.HttpConfiguration,System.String,System.String,System.String)">
+            <summary>
+            Adds an endpoint for displaying prometheus metrics, protected by basic auth 
+            </summary>
+            <param name="config">Obtained by calling from WebApiConfig.Register</param>
+            <param name="url">eg, "metrics" or "api/metrics"</param>
+            <param name="BasicAuthUsername">Username for basic auth</param>
+            <param name="BasicAuthPassword">Password for basic auth</param>
+        </member>
+        <member name="T:Prometheus.AspNet.PrometheusMetricsController">
+            <summary>
+            Class for serving up prometheus metrics
+            </summary>
+        </member>
+        <member name="M:Prometheus.AspNet.PrometheusMetricsController.AppMetrics">
+            <summary>
+            Returns prometheus metrics
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

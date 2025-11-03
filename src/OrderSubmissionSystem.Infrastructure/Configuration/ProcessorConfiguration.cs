@@ -45,25 +45,51 @@ namespace OrderSubmissionSystem.Infrastructure.Configuration
             return FtpUploaderType.Local;
         }
 
-        public static FtpUploaderSettings GetFtpUploaderSettings(FtpUploaderType type)
+        public static FtpUploaderSettings GetFtpUploaderSettings(FtpUploaderType uploaderType)
         {
-            string prefix = type.ToString();
+            string urlKey;
+            string usernameKey;
+            string passwordKey;
 
-            string url = GetSetting($"{prefix}FtpUrl")
-                         ?? GetSetting("FtpUrl");
-
-            if (string.IsNullOrWhiteSpace(url))
+            switch (uploaderType)
             {
-                throw new InvalidOperationException($"{prefix} FTP URL not configured");
+                case FtpUploaderType.Azure:
+                    urlKey = "AzureFtpUrl";
+                    usernameKey = "AzureFtpUsername";
+                    passwordKey = "AzureFtpPassword";
+                    break;
+
+                case FtpUploaderType.Aws:
+                    urlKey = "AwsFtpUrl";
+                    usernameKey = "AwsFtpUsername";
+                    passwordKey = "AwsFtpPassword";
+                    break;
+
+                case FtpUploaderType.Local:
+                default:
+                    urlKey = "FtpUrl";
+                    usernameKey = "FtpUsername";
+                    passwordKey = "FtpPassword";
+                    break;
             }
 
-            string username = GetSetting($"{prefix}FtpUsername")
-                              ?? GetSetting("FtpUsername")
-                              ?? string.Empty;
+            var url = SecureConfigurationHelper.GetSetting(urlKey);
+            if (string.IsNullOrWhiteSpace(url))
+            {
+                url = SecureConfigurationHelper.GetRequiredSetting("FtpUrl");
+            }
 
-            string password = GetSetting($"{prefix}FtpPassword")
-                              ?? GetSetting("FtpPassword")
-                              ?? string.Empty;
+            var username = SecureConfigurationHelper.GetSetting(usernameKey);
+            if (string.IsNullOrWhiteSpace(username))
+            {
+                username = SecureConfigurationHelper.GetRequiredSetting("FtpUsername");
+            }
+
+            var password = SecureConfigurationHelper.GetSetting(passwordKey);
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                password = SecureConfigurationHelper.GetRequiredSetting("FtpPassword");
+            }
 
             return new FtpUploaderSettings
             {

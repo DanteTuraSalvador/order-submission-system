@@ -1,0 +1,11 @@
+Test run for C:\Users\Dante Salvador\OneDrive\Documents\Task\order-submission-system\tests\OrderSubmissionSystem.Api.IntegrationTests\bin\Debug\net472\OrderSubmissionSystem.Api.IntegrationTests.dll (.NETFramework,Version=v4.7.2)
+VSTest version 17.14.1 (x64)
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+Failed to load extensions from file 'C:\Users\Dante Salvador\OneDrive\Documents\Task\order-submission-system\tests\OrderSubmissionSystem.Api.IntegrationTests\bin\Debug\net472\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll'. Please use /diag for more information.
+No test is available in C:\Users\Dante Salvador\OneDrive\Documents\Task\order-submission-system\tests\OrderSubmissionSystem.Api.IntegrationTests\bin\Debug\net472\OrderSubmissionSystem.Api.IntegrationTests.dll. Make sure that test discoverer & executors are registered and platform & framework version settings are appropriate and try again.
+
+Additionally, path to test adapters can be specified using /TestAdapterPath command. Example  /TestAdapterPath:<pathToCustomAdapters>.
+
+Workload updates are available. Run `dotnet workload list` for more information.

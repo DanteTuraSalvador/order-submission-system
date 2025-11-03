@@ -6,3 +6,4 @@
 *.sln.docstates
 bin/
 obj/
+src/OrderSubmissionSystem/OrderSubmissionSystem.Api/App_Data/logs/

@@ -6,17 +6,12 @@ using System.Web.Http.Filters;
 
 namespace OrderSubmissionSystem.Api.Filters
 {
-    ///
-    /// Custom authentication filter for API Key validation
-    /// TODO: Implement Redis validation in next phase
-    ///
     public class ApiKeyAuthAttribute : AuthorizationFilterAttribute
     {
         private const string API_KEY_HEADER = "X-API-Key";
 
         public override void OnAuthorization(HttpActionContext actionContext)
         {
-            // Skip auth for health check endpoint
             if (actionContext.Request.RequestUri.AbsolutePath.Contains("/health"))
             {
                 return;
@@ -41,10 +36,6 @@ namespace OrderSubmissionSystem.Api.Filters
                     new { message = "API Key is invalid" });
                 return;
             }
-
-            // TODO: Validate API Key against Redis
-            // For now, accept any non-empty key
-            // We'll implement Redis validation in Issue #46
         }
     }
 }

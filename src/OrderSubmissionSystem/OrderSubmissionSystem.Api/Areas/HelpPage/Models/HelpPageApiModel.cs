@@ -1,8 +1,8 @@
-using OrderSubmissionSystem.Api.Areas.HelpPage.ModelDescriptions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
+using OrderSubmissionSystem.Api.Areas.HelpPage.ModelDescriptions;
 
 namespace OrderSubmissionSystem.Api.Areas.HelpPage.Models
 {

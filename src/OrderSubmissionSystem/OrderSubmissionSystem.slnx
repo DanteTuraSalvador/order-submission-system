@@ -1,4 +1,10 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="../../.gitignore" />
+    <File Path="../../azure-pipelines.yml" />
+    <File Path="../../docker-compose.yml" />
+    <File Path="../../Dockerfile" />
+  </Folder>
   <Project Path="../OrderSubmissionSystem.Application/OrderSubmissionSystem.Application.csproj" Id="572e8008-64f3-425b-91b2-c3fc1073b11a" />
   <Project Path="../OrderSubmissionSystem.Domain/OrderSubmissionSystem.Domain.csproj" Id="60025292-a4f9-4d1d-bcfb-5f237cb69f1d" />
   <Project Path="../OrderSubmissionSystem.Infrastructure/OrderSubmissionSystem.Infrastructure.csproj" Id="6852170d-7d5c-4dc1-baf9-d4c1e8dd75c6" />

@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\ProcessorConfiguration.cs" />
+    <Compile Include="Configuration\SecureConfigurationHelper.cs" />
     <Compile Include="Processors\FtpOrderProcessor.cs" />
     <Compile Include="Processors\SqlOrderProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +77,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,28 +4,31 @@ using System;
 using System.Configuration;
 using System.IO;
 using System.Web.Http;
-using System.Web.Mvc;
-using System.Web.Optimization;
-using System.Web.Routing;
-
 namespace OrderSubmissionSystem.Api
 {
+    /// <summary>
+    /// Represents the ASP.NET Web API application for the Order Submission System.
+    /// Handles application-level events such as startup and shutdown.
+    /// </summary>
     public class WebApiApplication : System.Web.HttpApplication
     {
+        /// <summary>
+        /// Handles application startup logic for the Order Submission System API.
+        /// Configures logging, registers Web API routes, and sets up dependency injection.
+        /// </summary>
         protected void Application_Start()
         {
             ConfigureLogging();
             Log.Information("Starting OrderSubmissionSystem API");
 
-            AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
-
             UnityConfig.RegisterComponents();
         }
 
+        /// <summary>
+        /// Handles application shutdown logic for the Order Submission System API.
+        /// Ensures that logging is properly closed and resources are released.
+        /// </summary>
         protected void Application_End()
         {
             Log.Information("Stopping OrderSubmissionSystem API");
@@ -55,4 +58,6 @@ namespace OrderSubmissionSystem.Api
         }
     }
 }
+
+
 

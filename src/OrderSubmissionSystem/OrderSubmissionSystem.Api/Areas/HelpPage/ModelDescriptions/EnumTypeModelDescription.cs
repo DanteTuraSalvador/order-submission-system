@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace OrderSubmissionSystem.Api.Areas.HelpPage.ModelDescriptions
