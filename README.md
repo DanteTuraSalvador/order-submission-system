@@ -23,7 +23,7 @@ ASP.NET Web API application for ingesting customer orders, validating the payloa
 
 ### 1. Clone & Restore
 ```powershell
-git clone https://github.com/<your-account>/order-submission-system.git
+git clone https://github.com/DanteTuraSalvador/order-submission-system.git
 cd order-submission-system
 ```
 - Open `OrderSubmissionSystem.sln` in Visual Studio (NuGet packages restore automatically), **or**
