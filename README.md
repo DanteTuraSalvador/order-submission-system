@@ -145,13 +145,7 @@ Run tests from Visual Studio Test Explorer or via command line (requires vstest.
 - **API returns 500 (Parser Error)** – Ensure the project was built before launching IIS Express.
 - **SQL duplicate key error** – Orders are keyed by `OrderId`. Use unique IDs or delete existing rows from `dbo.Orders` / `dbo.OrderItems`.
 - **FTP upload failures** – Confirm the FTP container/service is running and credentials match `secrets.config`.
-- **Docker SQL container fails with AppLoader LSA error** – Use LocalDB (default), or review Microsoft guidance for running SQL Server Linux containers with Credential Guard/WSL2.
 
-## Contributing
-1. Fork and clone
-2. Create a feature branch
-3. Commit with descriptive messages
-4. Push and open a pull request
 
 ## License
 Internal project – no public license specified.
